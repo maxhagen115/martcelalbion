@@ -73,10 +73,6 @@ function EmptyState() {
   return (
     <div className="py-24 text-center text-neutral-500">
       <p>No paintings published yet.</p>
-      <p className="mt-2">
-        Add items to <code className="px-1 py-0.5 rounded bg-gray-100">src/data/products.ts</code> with{" "}
-        <code className="px-1 py-0.5 rounded bg-gray-100">category: "paintings"</code>.
-      </p>
     </div>
   );
 }

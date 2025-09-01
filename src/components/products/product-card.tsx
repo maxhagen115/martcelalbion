@@ -1,4 +1,3 @@
-import { useState } from "react";
 import LazyImage from "./lazy-image";
 import type { Product } from "@/data/products";
 

@@ -7,7 +7,7 @@ import ProductModal from "@/components/products/product-modal";
 import { getByCategory } from "@/lib/products";
 
 export default function ModelAndDecorPage() {
-  const items = getByCategory("decor");
+  const items = getByCategory("paintings"); // or "photos"
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
 
@@ -73,10 +73,6 @@ function EmptyState() {
   return (
     <div className="py-24 text-center text-neutral-500">
       <p>No decor items published yet.</p>
-      <p className="mt-2">
-        Add items to <code className="px-1 py-0.5 rounded bg-gray-100">src/data/products.ts</code> with{" "}
-        <code className="px-1 py-0.5 rounded bg-gray-100">category: "decor"</code>.
-      </p>
     </div>
   );
 }

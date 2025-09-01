@@ -37,7 +37,7 @@ export default function LazyImage({
         }
       },
       {
-        rootMargin: '100px', // Increased margin for smoother preloading
+        rootMargin: '100px',
         threshold: 0.01
       }
     );
@@ -73,7 +73,14 @@ export default function LazyImage({
           }`}
         />
       )}
-      
+
+      {/* Show loading spinner while image is loading */}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="w-8 h-8 border-4 border-gray-300 border-t-transparent rounded-full animate-spin" />
+        </div>
+      )}
+
       {/* Enhanced loading placeholder */}
       {!isLoaded && isInView && (
         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse">

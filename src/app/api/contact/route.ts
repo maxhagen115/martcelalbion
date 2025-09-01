@@ -8,6 +8,16 @@ function isEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
 
+// Move this outside POST so it's in scope for the catch block
+function isErrorWithMessage(err: unknown): err is { message: string } {
+  return (
+    typeof err === "object" &&
+    err !== null &&
+    "message" in err &&
+    typeof (err as { message?: unknown }).message === "string"
+  );
+}
+
 export async function POST(req: Request) {
   try {
     const { name, email, message, productTitle, productSlug } = await req.json();
@@ -67,8 +77,14 @@ export async function POST(req: Request) {
 
     console.log("Mail sent:", info.messageId);
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
-    console.error("Contact API error:", err?.message || err);
+  } catch (err: unknown) {
+    let errorMessage = "Unknown error";
+    if (isErrorWithMessage(err)) {
+      errorMessage = err.message;
+    } else {
+      errorMessage = String(err);
+    }
+    console.error("Contact API error:", errorMessage);
     return NextResponse.json({ error: "Mail failed" }, { status: 500 });
   }
 }

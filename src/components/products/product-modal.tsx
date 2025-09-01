@@ -52,11 +52,11 @@ export default function ProductModal({
       {/* Main Product Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center">
         {/* Backdrop */}
-        <div 
+        <div
           className="absolute inset-0 bg-black/80 backdrop-blur-sm"
           onClick={onClose}
         />
-        
+
         {/* Modal Content */}
         <div className="relative bg-white rounded-lg shadow-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-hidden">
           {/* Header */}
@@ -208,7 +208,7 @@ function PurchaseRequestModal({ product, onClose }: { product: Product; onClose:
         setSubmitStatus('error');
         setErrorMessage(result.error || 'Failed to send request. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setErrorMessage('Network error. Please check your connection and try again.');
     } finally {
@@ -225,11 +225,11 @@ function PurchaseRequestModal({ product, onClose }: { product: Product; onClose:
   if (submitStatus === 'success') {
     return (
       <div className="fixed inset-0 z-60 flex items-center justify-center">
-        <div 
+        <div
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={onClose}
         />
-        
+
         <div className="relative bg-white rounded-lg shadow-2xl max-w-md w-full mx-4 p-6">
           <div className="text-center">
             <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -239,7 +239,7 @@ function PurchaseRequestModal({ product, onClose }: { product: Product; onClose:
             </div>
             <h3 className="text-xl font-semibold text-green-800 mb-2">Request Sent!</h3>
             <p className="text-gray-600">
-              Your purchase request for "{product.title}" has been sent successfully. We'll get back to you soon.
+              Your purchase request for {product.title} has been sent successfully. We&rsquo;ll get back to you soon.
             </p>
             <button
               onClick={onClose}
@@ -255,11 +255,11 @@ function PurchaseRequestModal({ product, onClose }: { product: Product; onClose:
 
   return (
     <div className="fixed inset-0 z-60 flex items-center justify-center">
-      <div 
+      <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
-      
+
       <div className="relative bg-white rounded-lg shadow-2xl max-w-md w-full mx-4 p-6">
         <div className="text-center mb-6">
           <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
@@ -267,7 +267,7 @@ function PurchaseRequestModal({ product, onClose }: { product: Product; onClose:
           </div>
           <h3 className="text-xl font-semibold">Request Purchase</h3>
           <p className="text-gray-600 mt-2">
-            Interested in "{product.title}"? Send us a message and we'll get back to you.
+            Interested in &quot;{product.title}&quot;? Send us a message and We&rsquo;ll get back to you.
           </p>
         </div>
 

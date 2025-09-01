@@ -78,7 +78,7 @@ export default function InquiryForm({ productTitle, productSlug }: Props) {
         {status === "sending" ? "Sending…" : "Send"}
       </button>
 
-      {status === "ok" && <p className="text-green-600">Thank you! We’ll get back to you.</p>}
+      {status === "ok" && <p className="text-green-600">Thank you! We&rsquo;ll get back to you.</p>}
       {status === "error" && <p className="text-red-600">Something went wrong. Please try again.</p>}
     </form>
   );
